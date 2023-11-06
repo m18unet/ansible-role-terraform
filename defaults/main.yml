@@ -1,0 +1,9 @@
+---
+terraform_version: '1.6.3'
+terraform_platform: linux
+terraform_arch: amd64
+terraform_bin_path: /usr/local/bin/terraform
+terraform_release_url: https://releases.hashicorp.com/terraform/{{ terraform_version }}
+terraform_archive_name: terraform_{{ terraform_version }}_{{ terraform_platform }}_{{ terraform_arch }}.zip
+terraform_download_url: "{{ terraform_release_url }}/{{ terraform_archive_name }}"
+terraform_checksum_url: "{{ terraform_release_url }}/terraform_{{ terraform_version }}_SHA256SUMS"

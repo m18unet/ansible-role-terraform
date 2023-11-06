@@ -1,0 +1,30 @@
+---
+galaxy_info:
+  author: m18unet
+  role_name: terraform
+  description: An Ansible Role that installs terraform.
+
+  license: MIT
+
+  min_ansible_version: 2.10.0
+
+  platforms:
+    - name: Fedora
+      versions:
+        - all
+    - name: Amazon
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+
+  galaxy_tags:
+    - terraform
+    - hashicorp
+    - infrastructure
+    - cloud
+    - iaac

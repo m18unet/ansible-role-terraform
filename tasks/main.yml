@@ -1,0 +1,17 @@
+---
+- name: Check the presence of the terraform binary.
+  stat:
+    path: "{{ terraform_bin_path }}"
+  register: terraform_check
+
+- name: Check the terraform version.
+  shell: "{{ terraform_bin_path }} version -json"
+  failed_when: false
+  changed_when: false
+  register: terraform_current_version
+
+- name: Install terraform v{{ terraform_version }}
+  include_tasks: install.yml
+  when: >-
+    not terraform_check.stat.exists
+    or terraform_version not in terraform_current_version.stdout

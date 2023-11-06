@@ -1,0 +1,19 @@
+---
+- name: Verify
+  hosts: all
+  become: false
+  gather_facts: false
+
+  vars_files:
+    - ../../defaults/main.yml
+
+  tasks:
+    - name: Check the terraform version.
+      command: "{{ terraform_bin_path }} version -json"
+      changed_when: false
+      register: terraform_verify_version
+
+    - name: Verify terraform's version is {{ terraform_version }}
+      assert:
+        that:
+          - terraform_version in terraform_verify_version.stdout

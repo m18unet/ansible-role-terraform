@@ -1,0 +1,25 @@
+---
+- name: Prepare
+  hosts: all
+  become: false
+  gather_facts: true
+
+  vars:
+    terraform_version: '1.4.7'
+
+  pre_tasks:
+    - name: Install unzip on Debian.
+      apt:
+        name: unzip
+        update_cache: true
+        cache_valid_time: 600
+      when: ansible_os_family == 'Debian'
+
+    - name: Install unzip on RedHat.
+      dnf:
+        name: unzip
+        update_cache: true
+      when: ansible_os_family == 'RedHat'
+
+  roles:
+    - m18unet.terraform
