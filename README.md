@@ -19,7 +19,7 @@ None.
 ```yaml
 - hosts: all
   roles:
-    - m18uet.terraform
+    - m18unet.terraform
 ```
 
 ## License
