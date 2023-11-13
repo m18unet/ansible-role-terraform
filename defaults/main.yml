@@ -1,4 +1,5 @@
 ---
+# See available releases: https://github.com/hashicorp/terraform/releases
 terraform_version: '1.6.3'
 terraform_platform: linux
 terraform_arch: amd64
